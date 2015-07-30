@@ -1,0 +1,15 @@
+﻿@using RussianTeaClubSite.HtmlHelpers
+@model RussianTeaClubSite.ViewModels.ArticleListViewModel
+
+@{
+    ViewBag.Title = "Статьи";
+}
+
+@foreach (var p in @Model.Articles)
+{
+    @Html.Partial("ArticlesSummary", p)
+}
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>

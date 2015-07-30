@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<RussianTeaClubSite.ViewModels.MenuViewModel>
+
+@foreach (var elem in Model)
+{
+    @Html.RouteLink(elem.ItemName, new
+    {
+        controller = elem.ControllerName,
+        item = elem.ItemName
+    },
+    new
+    {
+        @class = "btn btn-block btn-default btn-lg " +
+        (elem.IsSelected ? "btn-primary" : "")
+    })
+}
