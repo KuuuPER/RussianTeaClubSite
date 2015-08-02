@@ -10,7 +10,7 @@ namespace RussianTeaClub.Domain.Abstract
         /// <summary> Статьи </summary>
         IEnumerable<Article> Articles { get; }
 
-        void SaveArticle(Article article);
+        void SaveArticle(Article article, List<ContentImage> updatedImages);
         Article DeleteArticle(Guid guid);
     }
 }

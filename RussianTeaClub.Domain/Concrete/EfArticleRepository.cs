@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using RussianTeaClub.Domain.Abstract;
 using RussianTeaClub.Domain.Entities;
@@ -12,10 +13,10 @@ namespace RussianTeaClub.Domain.Concrete
 
         public IEnumerable<Article> Articles
         {
-            get { return context.Articles.Include("Tags"); }
+            get { return context.Articles.Include("ImagesData").Include("Tags"); }
         }
 
-        public void SaveArticle(Article article)
+        public void SaveArticle(Article article, List<ContentImage> updatedImages)
         {
             var dbEntry = context.Articles.Find(article.ArticleId);
             if (dbEntry != null)
@@ -27,7 +28,8 @@ namespace RussianTeaClub.Domain.Concrete
                 dbEntry.Tags.ToList().ForEach(t => dbEntry.Tags.Remove(t));
 
                 dbEntry.Tags = article.Tags;
-                dbEntry.ImagesData = article.ImagesData;
+
+                context.Images.AddRange(updatedImages);
             }
             else
             {

@@ -14,7 +14,6 @@ namespace RussianTeaClub.Domain.Entities
         public Article()
         {
             ArticleId = Guid.NewGuid();
-            ImagesData = new List<ContentImage>();
         }
 
         public Article(string guid)

@@ -79,30 +79,28 @@ namespace RussianTeaClubSite.Controllers
                     Tags = tags,
                 };
 
+                var imageList = new List<ContentImage>(images.Length);
+
                 if (images != null && images.Length > 0)
                 {
-                    var imageList = new List<ContentImage>(images.Length);
-
                     foreach (var image in images)
                     {
                         var contentImage = new ContentImage
                         {
-                            Article = article,
                             ArticleId = article.ArticleId,
                             ImageMimeType = image.ContentType,
+                            ImageData = new byte[image.ContentLength]
                         };
 
                         image.InputStream.Read(contentImage.ImageData, 0, image.ContentLength);
 
                         imageList.Add(contentImage);
                     }
-
-                    article.ImagesData = imageList;
                 }
 
-                _repository.SaveArticle(article);
+                _repository.SaveArticle(article, imageList);
                 
-                TempData["message"] = string.Format("Изменения в статье {0} применены", article.Name);
+                TempData["message"] = $"Изменения в статье {article.Name} применены";
 
                 return RedirectToAction("Index");
             }
@@ -116,7 +114,7 @@ namespace RussianTeaClubSite.Controllers
 
             if (deletedArticle != null)
             {
-                TempData["message"] = string.Format("Статья {0} была удалена", deletedArticle.Name);
+                TempData["message"] = $"Статья {deletedArticle.Name} была удалена";
             }
 
             return RedirectToAction("Index");

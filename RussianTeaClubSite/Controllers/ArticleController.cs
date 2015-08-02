@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using RussianTeaClub.Domain.Abstract;
 using RussianTeaClubSite.ViewModels;
@@ -30,6 +31,20 @@ namespace RussianTeaClubSite.Controllers
             };
 
             return View(articleViewModel);
+        }
+
+        public FileContentResult GetImage(Guid articleid, Guid contentImageId)
+        {
+            var article = _repository.Articles.SingleOrDefault(a => a.ArticleId == articleid);
+
+            if (article != null)
+            {
+                var image = article.ImagesData.Single(i => i.ContentImageId == contentImageId);
+
+                return File(image.ImageData, image.ImageMimeType);
+            }
+
+            return null;
         }
     }
 }

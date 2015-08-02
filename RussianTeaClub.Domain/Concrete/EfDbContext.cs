@@ -13,6 +13,7 @@ namespace RussianTeaClub.Domain.Concrete
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<ContentImage> Images { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

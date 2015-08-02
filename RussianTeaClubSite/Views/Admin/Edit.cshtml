@@ -43,33 +43,34 @@
                             break;
                     }
                 }
+            }
 
-                <div class="form-group">
-                    <div style="position: relative">
-                        <label>Картинки</label>
-                        <a class="btn" href="javascript:;">
-                            Выберите файл...
-                            <input type="file" name="Image" size="40"
-                                   style="position: absolute; z-index: 2; top: 0;
+            <div class="form-group">
+                <div style="position: relative">
+                    <label>Картинки</label>
+                    <a class="btn" href="javascript:;">
+                        Выберите файл...
+                        <input type="file" name="images" multiple size="40"
+                               style="position: absolute; z-index: 2; top: 0;
                                                                                                   left: 0; filter: alpha(opacity=0); opacity: 0;
                                                                                                   background-color: transparent; color: transparent;"
-                                   onchange='$("#upload-file-info").html($(this).val());'/>
-                        </a>
-                        <span class="label label-info" id="upload-file-info"></span>
-                    </div>
-                    @if (Model.ContentImages == null || Model.ContentImages.Count == 0)
-                    {
-                        <div class="form-control-static">Нет картинки</div>
-                    }
-                    else
-                    {
-                        foreach (var image in Model.ContentImages)
-                        {
-                            <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImages", "Article", new { Model.ArticleId })"/>
-                        }
-                    }
+                               onchange='$("#upload-file-info").html($(this).val());' />
+                    </a>
+                    <span class="label label-info" id="upload-file-info"></span>
                 </div>
-            }
+                @if (Model.ContentImages == null || Model.ContentImages.Count == 0)
+                {
+                    <div class="form-control-static">Нет картинки</div>
+                }
+                else
+                {
+                    foreach (var image in Model.ContentImages)
+                    {
+                        <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "Article", new { articleId = Model.ArticleId, contentImageId = image.ContentImageId })" />
+                    }
+                }
+            </div>
+
         </div>
         <div class="panel-footer">
             <input type="submit" value="Сохранить" class="btn btn-primary"/>
