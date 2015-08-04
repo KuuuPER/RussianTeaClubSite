@@ -51,7 +51,7 @@ namespace RussianTeaClub.UnitTest
             var controller = new ArticleController(mock.Object) {_pageSize = 3};
 
             // Действие (act)
-            var result = (ArticleListViewModel)controller.List(2).Model;
+            var result = (ArticleListViewModel)controller.List(string.Empty, 2).Model;
 
             // Утверждение (assert)
             var articles = result.Articles.ToList();
@@ -94,7 +94,7 @@ namespace RussianTeaClub.UnitTest
             var controller = new ArticleController(mock.Object) { _pageSize = 3 };
 
             // Действие (act)
-            var result = (ArticleListViewModel)controller.List(2).Model;
+            var result = (ArticleListViewModel)controller.List(string.Empty, 2).Model;
 
             // Утверждение (assert)
             var pageInfo = result.PagingInfo;
@@ -148,7 +148,7 @@ namespace RussianTeaClub.UnitTest
                 new Tag{Name = "Тэг3"},
             };
 
-            articleRepository.SaveArticle(article);
+            articleRepository.SaveArticle(article, null);
         }
 
         [TestMethod]

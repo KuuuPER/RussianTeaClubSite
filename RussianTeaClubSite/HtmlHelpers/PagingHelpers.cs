@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Web.Mvc;
+using RussianTeaClub.Domain.Entities;
 using RussianTeaClubSite.ViewModels;
 
 namespace RussianTeaClubSite.HtmlHelpers
@@ -27,6 +30,14 @@ namespace RussianTeaClubSite.HtmlHelpers
                 result.Append(tag.ToString());
             }
             return MvcHtmlString.Create(result.ToString());
+        }
+
+        public static MvcHtmlString Tags(this HtmlHelper html, ICollection<Tag> tags, Func<string, MvcHtmlString> tagUrl)
+        {
+            var htmlTags = tags.Select(t => tagUrl(t.Name).ToHtmlString()).ToArray();
+            var tagsStr = string.Join(", ", htmlTags);
+
+            return MvcHtmlString.Create(tagsStr);
         }
     }
 }

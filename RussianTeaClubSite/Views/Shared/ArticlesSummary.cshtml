@@ -1,13 +1,26 @@
-﻿@model RussianTeaClub.Domain.Entities.Article
+﻿@using RussianTeaClubSite.HtmlHelpers
+@model RussianTeaClub.Domain.Entities.Article
 
 <div class="well">
     <h3>
-        <strong>@Model.Name</strong>
+        <strong>@Html.ActionLink(Model.Name, "Article", new { articleId = Model.ArticleId.ToString() })</strong>
     </h3>
-    <span class="lead">@Model.Description</span>
-    <span class="lead">@Model.Description</span>
-    @foreach (var t in Model.Tags)
+
+    @if (Model.ImagesData != null)
     {
-        <a>@t.Name.ToLower()</a>
+        <div class="text-center">
+            @foreach (var images in Model.ImagesData)
+            {
+                <div style="max-width: 250px; display: inline-block">
+                    <img class="img-thumbnail" style="max-height: 150px"
+                         src="@Url.Action("GetImage", "Article",
+                                  new {articleId = Model.ArticleId, contentImageId = images.ContentImageId})"/>
+                </div>
+            }
+        </div>
     }
+
+    <span class="lead">@Model.Description</span>
+    <br/>
+    <div class="pull-left">@Html.Raw(Html.Tags(Model.Tags, t => Html.ActionLink(t.ToLower(), "List", new { tag = t })))</div>
 </div>

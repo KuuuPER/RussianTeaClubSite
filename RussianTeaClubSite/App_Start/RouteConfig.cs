@@ -15,6 +15,7 @@ namespace RussianTeaClubSite
                 {
                     controller = "Article",
                     action = "List",
+                    tag = string.Empty,
                     page = 1,
                     item = "Домой" 
                 }
@@ -23,7 +24,7 @@ namespace RussianTeaClubSite
             routes.MapRoute(
                 name: null,
                 url: "{page}",
-                defaults: new { controller = "Article", action = "List", page = 1, item = "Домой" },
+                defaults: new { controller = "Article", action = "List", tag = string.Empty, page = 1, item = "Домой" },
                 constraints: new { page = @"\d+" }
             );
 

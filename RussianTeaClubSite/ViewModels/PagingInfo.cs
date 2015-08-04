@@ -13,10 +13,13 @@ namespace RussianTeaClubSite.ViewModels
         // Номер текущей страницы
         public int CurrentPage { get; set; }
 
+        //Текущий тэг
+        public string CurrentTag { get; set; }
+
         // Общее кол-во страниц
         public int TotalPages
         {
             get { return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage); }
-        } 
+        }
     }
 }
