@@ -158,3 +158,4 @@ E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClubSite\bin\System.Web.WebPa
 E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClubSite\obj\Debug\RussianTeaClub.WebUI.csprojResolveAssemblyReference.cache
 E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClubSite\obj\Debug\RussianTeaClubSite.dll
 E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClubSite\obj\Debug\RussianTeaClubSite.pdb
+E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClubSite\bin\Views\Article\Article.cshtml

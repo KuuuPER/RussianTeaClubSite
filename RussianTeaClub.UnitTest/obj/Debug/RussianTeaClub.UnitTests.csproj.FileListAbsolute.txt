@@ -157,3 +157,4 @@ E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClub.UnitTest\bin\Debug\Syste
 E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClub.UnitTest\bin\Debug\System.Web.WebPages.xml
 E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClub.UnitTest\bin\Debug\System.Web.WebPages.Deployment.xml
 E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClub.UnitTest\bin\Debug\System.Web.WebPages.Razor.xml
+E:\GitHubVisualStudio\RussianTeaClubSite\RussianTeaClub.UnitTest\bin\Debug\Views\Article\Article.cshtml
