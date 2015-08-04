@@ -100,7 +100,7 @@ namespace RussianTeaClubSite.Controllers
 
                 _repository.SaveArticle(article, imageList);
                 
-                TempData["message"] = $"Изменения в статье {article.Name} применены";
+                TempData["message"] = string.Format("Изменения в статье {0} применены", article.Name);
 
                 return RedirectToAction("Index");
             }
@@ -114,7 +114,7 @@ namespace RussianTeaClubSite.Controllers
 
             if (deletedArticle != null)
             {
-                TempData["message"] = $"Статья {deletedArticle.Name} была удалена";
+                TempData["message"] = string.Format("Статья {0} была удалена", deletedArticle.Name);
             }
 
             return RedirectToAction("Index");
