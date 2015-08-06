@@ -81,7 +81,7 @@ namespace RussianTeaClubSite.Controllers
 
                 var imageList = new List<ContentImage>(images.Length);
 
-                if (images != null && images.Length > 0)
+                if (images != null && images.Length > 0 && images.Any(i => i != null))
                 {
                     foreach (var image in images)
                     {
