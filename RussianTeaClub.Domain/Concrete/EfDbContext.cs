@@ -20,7 +20,8 @@ namespace RussianTeaClub.Domain.Concrete
             modelBuilder.Entity<Article>()
                 .HasMany(a => a.ImagesData)
                 .WithOptional(i => i.Article)
-                .HasForeignKey(a => a.ArticleId);
+                .HasForeignKey(a => a.ArticleId)
+                .WillCascadeOnDelete(true);
         }
     }
 }
