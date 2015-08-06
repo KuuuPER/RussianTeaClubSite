@@ -9,7 +9,7 @@ namespace RussianTeaClub.Domain.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "RussianTeaClub.Domain.Concrete.EfDbContext";
         }
 
