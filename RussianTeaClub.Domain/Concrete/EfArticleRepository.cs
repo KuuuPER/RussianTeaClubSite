@@ -28,14 +28,13 @@ namespace RussianTeaClub.Domain.Concrete
                 dbEntry.Tags.ToList().ForEach(t => dbEntry.Tags.Remove(t));
 
                 dbEntry.Tags = article.Tags;
-
-                context.Images.AddRange(updatedImages);
             }
             else
             {
                 context.Articles.Add(article);
             }
-
+            
+            context.Images.AddRange(updatedImages);
             context.SaveChanges();
         }
 
